@@ -19,9 +19,13 @@ env.bak/
 venv.bak/
 
 # Project specific
-data/
-models/
+data/*
+!data/processed/
+!data/processed/cleaned_customers.csv
+!data/processed/segmented_customers.csv
+models/*
+!models/kmeans_model.joblib
 reports/*.pdf
-reports/*.html
 reports/*.docx
+!reports/customer_clusters_3d.html
 images/output/

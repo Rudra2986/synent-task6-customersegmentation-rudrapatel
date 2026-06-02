@@ -1,10 +1,11 @@
 """
-Feature Scaling Starter Module
+Feature Scaling Module
 Synent Technologies - Data Science Internship (Summer 2026)
 Task 6: Customer Segmentation
 
-This module standardizes numerical features so that K-Means Euclidean distance 
-computations are not biased by feature magnitudes.
+This module standardizes numerical features using StandardScaler.
+Standardization ensures features are on the same scale, preventing columns
+with larger absolute ranges from dominating the distance metrics in K-Means.
 """
 
 import pandas as pd
@@ -13,18 +14,22 @@ from sklearn.preprocessing import StandardScaler
 
 def scale_features(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Applies StandardScaler to scale features.
+    Standardizes selected features using standard scaling.
     
     Args:
-        df (pd.DataFrame): Dataframe of selected features.
+        df (pd.DataFrame): Input dataframe of numerical columns.
         
     Returns:
-        pd.DataFrame: Scaled data values in a DataFrame.
+        pd.DataFrame: Scaled values in a pandas DataFrame with original columns.
     """
-    print("Applying StandardScaler scaling...")
-    # TODO: Initialize StandardScaler, fit_transform features, return scaled DataFrame
-    return pd.DataFrame()
+    print("  [Action] Scaling features using StandardScaler...")
+    scaler = StandardScaler()
+    scaled_array = scaler.fit_transform(df)
+    
+    # Return as DataFrame to preserve column names for ease of tracking
+    scaled_df = pd.DataFrame(scaled_array, columns=df.columns)
+    return scaled_df
 
 
 if __name__ == "__main__":
-    print("Running Scaling starter script.")
+    print("Scaling module initialized.")

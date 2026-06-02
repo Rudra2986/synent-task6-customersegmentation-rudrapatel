@@ -1,9 +1,10 @@
 """
-Feature Selection Starter Module
+Feature Selection Module
 Synent Technologies - Data Science Internship (Summer 2026)
 Task 6: Customer Segmentation
 
-This module handles feature extraction and mapping for clustering algorithms.
+This module extracts specific customer features (Annual Income and Spending Score)
+to be used for K-Means clustering.
 """
 
 import pandas as pd
@@ -11,19 +12,19 @@ import pandas as pd
 
 def select_clustering_features(df: pd.DataFrame, feature_columns: list) -> pd.DataFrame:
     """
-    Filters the dataset to only include variables required for the K-Means algorithm.
+    Subsets the dataframe to only include target features for clustering.
     
     Args:
         df (pd.DataFrame): Cleaned customer dataset.
-        feature_columns (list): List of column names to keep for clustering.
+        feature_columns (list): Columns to extract.
         
     Returns:
-        pd.DataFrame: Feature matrix.
+        pd.DataFrame: Matrix containing only selected features.
     """
-    print(f"Selecting features for clustering: {feature_columns}")
-    # TODO: Implement feature selection logic
-    return pd.DataFrame()
+    print(f"  [Action] Selecting clustering columns: {feature_columns}")
+    return df[feature_columns]
 
 
 if __name__ == "__main__":
-    print("Running Feature Selection starter script.")
+    # Small test loop
+    print("Feature Selection module initialized.")
